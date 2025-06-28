@@ -1,0 +1,129 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    /* Utilisation de la police Orbitron ou une police générique futuriste */
+    font-family: 'Orbitron', Arial, sans-serif;
+    background-color: #0d0d1a; /* Fond très sombre */
+    color: #e0e0e0; /* Couleur de texte générale claire */
+    overflow: hidden; /* Pour éviter les barres de défilement dues aux ombres de néon */
+}
+
+.calculator {
+    background-color: #1a1a2e; /* Fond de la calculatrice plus clair que le body */
+    padding: 25px;
+    border-radius: 15px;
+    /* Ombre futuriste avec un léger halo lumineux */
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5), /* Cyan lumineux */
+                0 0 60px rgba(138, 43, 226, 0.3); /* Violet pour un dégradé */
+    width: 320px;
+    border: 1px solid rgba(0, 255, 255, 0.2); /* Bordure subtile */
+    animation: fadeIn 1s ease-in-out; /* Animation d'apparition */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.display {
+    background-color: #0a0a1a; /* Fond d'écran encore plus sombre */
+    color: #00ffff; /* Couleur néon cyan */
+    font-size: 3em; /* Plus grande taille de police pour l'affichage */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    text-align: right;
+    overflow-x: auto;
+    white-space: nowrap;
+    /* Effet de texte lumineux */
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.8),
+                 0 0 15px rgba(0, 255, 255, 0.6);
+    border: 1px solid #00ffff; /* Bordure assortie */
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.5); /* Ombre interne pour l'écran */
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px; /* Espacement un peu plus grand */
+}
+
+.buttons button {
+    background-color: #33334a; /* Fond des boutons plus sombre */
+    color: #e0e0e0; /* Texte des boutons clair */
+    border: none;
+    padding: 22px;
+    font-size: 1.6em; /* Police des boutons légèrement plus grande */
+    border-radius: 8px; /* Coins légèrement plus arrondis */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-out, box-shadow 0.2s ease-in-out;
+    /* Effet de brillance des boutons */
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.buttons button:hover {
+    background-color: #4a4a6e; /* Un peu plus clair au survol */
+    transform: translateY(-2px); /* Léger soulèvement au survol */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Brillance accentuée au survol */
+}
+
+.buttons button:active {
+    background-color: #2a2a3e; /* Plus sombre au clic */
+    transform: translateY(0); /* Retour à la position normale */
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.3); /* Brillance réduite au clic */
+}
+
+/* Couleurs spécifiques des boutons */
+.clear {
+    background-color: #cc0055 !important; /* Rouge néon */
+    box-shadow: 0 0 5px rgba(204, 0, 85, 0.7) !important;
+}
+.clear:hover {
+    background-color: #ff0066 !important;
+    box-shadow: 0 0 15px rgba(255, 0, 102, 0.9) !important;
+}
+
+.operator {
+    background-color: #8a2be2 !important; /* Violet électrique */
+    box-shadow: 0 0 5px rgba(138, 43, 226, 0.7) !important;
+}
+.operator:hover {
+    background-color: #9933ff !important;
+    box-shadow: 0 0 15px rgba(153, 51, 255, 0.9) !important;
+}
+
+.equal {
+    background-color: #00bfff !important; /* Bleu ciel lumineux */
+    box-shadow: 0 0 5px rgba(0, 191, 255, 0.7) !important;
+    grid-column: span 2;
+}
+.equal:hover {
+    background-color: #33d9ff !important;
+    box-shadow: 0 0 15px rgba(51, 217, 255, 0.9) !important;
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+
+/* Ajustements pour les petits écrans */
+@media (max-width: 400px) {
+    .calculator {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .display {
+        font-size: 2.2em;
+        padding: 15px;
+    }
+
+    .buttons button {
+        padding: 18px;
+        font-size: 1.3em;
+    }
+}
